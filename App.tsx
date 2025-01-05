@@ -1,8 +1,15 @@
 import * as React from 'react';
-import MainContainer from './navigation/mainContent.jsx'';
+import { enableScreens } from 'react-native-screens';
+import MainContainer from './navigation/mainContent';
+import { SafeAreaProvider } from 'react-native-safe-area-context';
+
+enableScreens();
 
 export default function App(){
   return (
-    <MainContainer/>
+    <SafeAreaProvider>
+      <MainContainer/>
+    </SafeAreaProvider>
+  
   );
 }

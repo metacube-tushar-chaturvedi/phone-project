@@ -5,14 +5,11 @@ import {
     StyleSheet,
 
 } from "react-native";
+import Appbar from "../../components/appBar";
 
 export default function ContactScreen(){
     return(
-        <View style={styles.container}>
-            <Text style={styles.content}>
-               Contact Screen
-            </Text>
-        </View>
+    <Appbar/>
     );
 }
 
@@ -20,7 +17,7 @@ const styles =  StyleSheet.create({
     container:{
         flex:1,
         justifyContent:'center',
-        alignItems:'center'
+        alignItems:'center',
     },
     content:{
         fontSize:24,
