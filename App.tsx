@@ -1,25 +1,8 @@
-import React from 'react'
-import {Text,
-  View,
-  StyleSheet,
-} from 'react-native';
-import AppBar from './components/appBar';
-
-
+import * as React from 'react';
+import MainContainer from './navigation/mainContent';
 
 export default function App(){
   return (
-    <View>
-      <Text style={styles.name}>Tushar</Text>
-      <AppBar/>
-    </View>
+    <MainContainer/>
   );
 }
-const styles = StyleSheet.create({
-  name:{
-    margin:8,
-    fontSize:24,
-    color:"#fff",
-    fontWeight:'bold'
-  }
-});
