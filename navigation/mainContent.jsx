@@ -19,12 +19,58 @@ const recentName = 'recent';
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
 
+const FavouriteStack = ()=>{
+    return (
+        <Stack.Navigator screenOptions={()=>(
+            {
+                headerShown:false,
+            }
+        )}>
+            <Stack.Screen name = {contactName} component={FavouriteScreen}/>
+        </Stack.Navigator>
+    );
+}
+
+const RecentStack = ()=>{
+    return (
+        <Stack.Navigator
+        screenOptions={()=>({
+            headerShown:false,
+        })}
+        >
+        <Stack.Screen name = {favouriteName} component={RecentScreen} />
+    </Stack.Navigator>
+    );
+}
+const ContactsStack = ()=>{
+   return (
+    <Stack.Navigator
+    screenOptions={()=>({
+        headerShown:false,
+    })}
+    >
+    <Stack.Screen name = {contactName} component={ContactScreen}/>
+</Stack.Navigator>
+   ); 
+}
+
 export default function MainContainer(){
     return (
 
         <NavigationContainer>
-            <Tab.Navigator initialRouteName={contactName}
+            <Tab.Navigator
+            tab
              screenOptions={({route})=>({
+                headerShown:false,
+                tabBarStyle:{
+                  height:70,
+                },
+                tabBarActiveTintColor: '#000',
+          tabBarInactiveTintColor: 'gray',
+                tabBarLabelStyle: {
+                    fontSize: 14,
+                    fontWeight: 300,
+                  },
                 tabBarIcon:({focused, color, size})=>{
                     let iconName;
                     let rn = route.name;
@@ -38,26 +84,17 @@ export default function MainContainer(){
                          color = focused ? '#000':'#A0A0A0'
                     }
                     else if(rn === recentName){
-                        iconName = focused ? 'clock-rotate-left' : 'clock-rotate-left';
+                        iconName = focused ? 'clock' : 'clock';
                            color = focused ? '#000' : '#A0A0A0';
                     }
                     return <Icon name = {iconName} size = {25} color = {color}/>;
                 },
-             })}
-             tabBarOptions={{
-                activeTineColor:'#000',
-                inactiveTineColor:'grey',
-                labelStyles:{paddingBottom:10,fontSize:10},
-                style:{
-                    padding:10,height:10,
-                }
-             }}
-             >
-                <Tab.Screen name={favouriteName} component={FavouriteScreen}/>
-                <Tab.Screen name={recentName} component={RecentScreen}/>
-                <Tab.Screen name={contactName} component={ContactScreen}/>
+                 tabBarLabelPosition: 'below-icon',
+             })}>
+                <Tab.Screen name= {favouriteName} component={FavouriteStack}/>
+                <Tab.Screen name={recentName} component={RecentStack}/>
+                <Tab.Screen name={contactName} component={ContactsStack}/>
             </Tab.Navigator>
-
         </NavigationContainer>
     );
 }
