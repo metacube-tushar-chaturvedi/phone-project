@@ -5,16 +5,12 @@ import {
     StyleSheet,
 
 } from "react-native";
+import Appbar from "../../components/appBar";
 
 export default function FavouriteScreen({ navigation }){
-    return(
-        <View style={styles.container}>
-            <Text onPress={navigation.navigate('home')} 
-            style={styles.content}>
-               Favourite Screen
-            </Text>
-        </View>
-    );
+     return(
+      <Appbar/>
+      );
 }
 
 const styles =  StyleSheet.create({

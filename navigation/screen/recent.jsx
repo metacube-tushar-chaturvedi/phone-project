@@ -3,16 +3,19 @@ import {
     Text,
     View,
     StyleSheet,
-
 } from "react-native";
 
+//components
+import Appbar from "../../components/appBar";
+import RecentCard from "../../components/recentCard";
+
 export default function RecentScreen(){
-    return(
-        <View style={styles.container}>
-            <Text style={styles.content}>
-               Recent Screen
-            </Text>
+   return(
+    <View>
+          <Appbar/>
+          <RecentCard/>
         </View>
+  
     );
 }
 
@@ -25,6 +28,5 @@ const styles =  StyleSheet.create({
     content:{
         fontSize:24,
         fontWeight:'bold',
-
     }
 });
