@@ -8,15 +8,19 @@ import UserAvatar from './usersAvatar';
 import MaterialIcon from 'react-native-vector-icons/MaterialIcons';
 
 import staticData  from '../assest/constant';
+import { useNavigation } from '@react-navigation/native';
 
 export default function SimpleCard({item}){
-
+   const navigation = useNavigation();
+   const navDetailScreen = ()=>{
+      navigation.navigate('detail',{item});
+   } 
     return (
       item.type != null ?  
     <View style={styles.container}>
     <View style={styles.cardContent} >
         {}
-   <UserAvatar name={item.name}/>
+   <UserAvatar name={item.name} onPress={navDetailScreen}/>
 
    <View style={styles.cardText}>
    <Text style={styles.cardtitle}>{item.name}</Text>

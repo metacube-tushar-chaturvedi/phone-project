@@ -14,8 +14,6 @@ export default function ContactScreen(){
                <Appbar/>
                <AllContact/>
         </View>
-
-
     );
 }
 
@@ -28,6 +26,5 @@ const styles =  StyleSheet.create({
     content:{
         fontSize:24,
         fontWeight:'bold',
-
     }
 });

@@ -10,11 +10,13 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import ContactScreen from './screen/contacts';
 import FavouriteScreen from './screen/favourites';
 import RecentScreen from './screen/recent';
+import DetailsScreen from './screen/details';
 
 //const
 const contactName = 'contact';
 const favouriteName = 'favourite';
 const recentName = 'recent';
+const detailName = 'detail';
 
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -39,6 +41,7 @@ const RecentStack = ()=>{
         })}
         >
         <Stack.Screen name = {favouriteName} component={RecentScreen} />
+        <Stack.Screen name= {detailName} component={DetailsScreen}/>
     </Stack.Navigator>
     );
 }

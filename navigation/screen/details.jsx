@@ -5,8 +5,15 @@ import {
     ScrollView
 } from 'react-native';
 
-export default function DetailsPage(details){
+//component 
+import UserAvatar from '../../components/usersAvatar';
+
+export default function DetailsScreen(details){
+
   return(
-     <ScrollView></ScrollView>
+     <ScrollView>
+        <UserAvatar name={details.name} size={100} />
+        <Text>{details.name} </Text>
+     </ScrollView>
   );
 } 

@@ -14,22 +14,18 @@ import UserAvatar from './usersAvatar';
 import staticData from '../assest/constant';
 import SimpleCard from './simpleCard';
 
-export default function RecentCard(){
+export default function RecentCard({navigation}){
 const {callLogs} = staticData;
+
 
     return (
         <ScrollView>
             <Text style={styles.headerStyle}>Today</Text>
                {callLogs.map((item)=>(
- <SimpleCard item={item}/>
+ <SimpleCard item={item} />
                ))
-
-               }
+}
                <Text style={styles.headerStyle}>Yesterday</Text>
-               {/* {callLogs.map((item)=>(
-                 <SimpleCard item={item}/>
-               ))
-               } */}
         </ScrollView>
        
     );
