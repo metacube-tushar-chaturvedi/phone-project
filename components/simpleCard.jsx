@@ -1,97 +1,156 @@
-import React from 'react'
-import {
-  View ,
-  Text,
-  StyleSheet
-} from 'react-native';
-import UserAvatar from './usersAvatar';
+import React, {useState} from 'react';
+import {View, Text, StyleSheet, TouchableOpacity} from 'react-native';
+
 import MaterialIcon from 'react-native-vector-icons/MaterialIcons';
+import {useNavigation} from '@react-navigation/native';
 
-import staticData  from '../assest/constant';
-import { useNavigation } from '@react-navigation/native';
+//component
+import UserAvatar from './usersAvatar';
+import Divider from './detailsComponent/divider';
+import IconCard from './detailsComponent/iconCard';
 
-export default function SimpleCard({item}){
-   const navigation = useNavigation();
-   const navDetailScreen = ()=>{
-      navigation.navigate('detail',{item});
-   } 
-    return (
-      item.type != null ?  
-    <View style={styles.container}>
-    <View style={styles.cardContent} >
-        {}
-   <UserAvatar name={item.name} onPress={navDetailScreen}/>
+export default function SimpleCard({item, isOpen, setIsOpen}) {
+  const openCard = () => {
+    {
+      if (isOpen.id === item.id) {
+        setIsOpen({id: item.id, show: !isOpen.show});
+      } else {
+        setIsOpen({id: item.id, show: true});
+      }
+    }
+  };
+  const navigation = useNavigation();
+  const navDetailScreen = () => {
+    navigation.navigate('detail', {item: item});
+  };
+  return item.type != null ? (
+    item.id === isOpen.id && isOpen.show ? (
+      <View style={styles.conExp}>
+        <View style={styles.containerCom}>
+          <View style={styles.cardContent}>
+            <UserAvatar
+              name={item.name}
+              onPress={navDetailScreen}
+              background={item.background}
+            />
+            <TouchableOpacity onPress={openCard}>
+              <View style={styles.cardText}>
+                <Text style={styles.cardtitle}>{item.name}</Text>
 
-   <View style={styles.cardText}>
-   <Text style={styles.cardtitle}>{item.name}</Text>
-
-   <Text>{item.type +" "+item.time }</Text>
-   </View>
-    </View>
-   <MaterialIcon name="phone" size={25} style={styles.cardIcon}/>
-</View>
-:         <View style={contactCardStyle.container}>
-<UserAvatar name={item.name}/>
-<Text style={contactCardStyle .cardtext}>{item.name}</Text>
-</View>
+                <Text>{item.type + ' ' + item.time}</Text>
+              </View>
+            </TouchableOpacity>
+          </View>
+          <MaterialIcon name="phone" size={25} style={styles.cardIcon} />
+        </View>
+        <Divider />
+        <View style={styles.iconCon}>
+          <IconCard icon="videocam" name="Video Call" height={35} size={30} />
+          <IconCard icon="chat" name="message" height={35} size={30} />
+          <IconCard icon="history" name="History" height={35} size={30} />
+        </View>
+      </View>
+    ) : (
+      // show compressed card
+      <View style={styles.containerCom}>
+        <View style={styles.cardContent}>
+          <UserAvatar
+            name={item.name}
+            onPress={navDetailScreen}
+            background={item.background}
+          />
+          <TouchableOpacity onPress={openCard}>
+            <View style={styles.cardText}>
+              <Text style={styles.cardtitle}>{item.name}</Text>
+              {/* <Text style={[ styles.cardtitle, item.id==isOpen.id ? {color:'#000'}:{color:'#666'}]}>Ritik ki jay</Text> */}
+              {isOpen.id === item.id && isOpen.show === true && (
+                <Text>visible</Text>
+              )}
+              <Text>{item.type + ' ' + item.time}</Text>
+            </View>
+          </TouchableOpacity>
+        </View>
+        <MaterialIcon name="phone" size={25} style={styles.cardIcon} />
+      </View>
     )
-
+  ) : (
+    // Show contact card
+    <View style={contactCardStyle.container}>
+      <UserAvatar
+        name={item.name}
+        background={item.background}
+        onPress={navDetailScreen}
+      />
+      <Text style={contactCardStyle.cardtext}>{item.name}</Text>
+    </View>
+  );
 }
 
 const styles = StyleSheet.create({
- container:{
-    height:70,
-marginHorizontal:10,
-borderRadius:25,
-    flexDirection:'row',
-    alignItems:'center',
+  containerCom: {
+    height: 70,
+    marginHorizontal: 10,
+    borderRadius: 25,
+    flexDirection: 'row',
+    alignItems: 'center',
+    paddingHorizontal: 10,
+    justifyContent: 'space-between',
+  },
+  conExp: {
+    backgroundColor: '#f9efed',
+    elevation: 1,
+    height: 160,
+    borderRadius: 40,
+    marginHorizontal: 10,
+    padding: 5,
+  },
 
-    // backgroundColor:'#d6ce94',
-    paddingHorizontal:10,
-    justifyContent:'space-between',
- },
- headerStyle:{
-    marginHorizontal:10,
-    marginVertical:20,
+  headerStyle: {
+    marginHorizontal: 10,
+    marginVertical: 20,
     // fontWeight:'bold'
- },
- cardImage:{
-    height:50,
-    width:50,
-    borderRadius:25,
- },
- cardContent:{
-    marginHorizontal:10,
-    flexDirection:'row',
-    alignItems:'center',
- },
+  },
+  cardImage: {
+    height: 50,
+    width: 50,
+    borderRadius: 25,
+  },
+  cardContent: {
+    marginHorizontal: 10,
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
 
- cardText:{
-paddingHorizontal:10,
- },
- cardtitle:{
-    fontSize:18,
-    fontWeight:'400',
- },
+  cardText: {
+    paddingHorizontal: 10,
+  },
+  cardtitle: {
+    fontSize: 18,
+    fontWeight: '400',
+    color: '#594b48',
+  },
 
- cardIcon:{},
-
+  iconCon: {
+    flex: 1,
+    flexDirection: 'row',
+    justifyContent: 'space-evenly',
+    alignItems: 'center',
+  },
 });
 
 const contactCardStyle = StyleSheet.create({
-    container:{
-       height:70,
-       marginHorizontal:10,
-       borderRadius:25,
-           flexDirection:'row',
-           alignItems:'center',
-       
-           // backgroundColor:'#d6ce94',
-           paddingHorizontal:10,
-    },
-    cardtext:{
-     paddingHorizontal:15,
-     fontSize:16
-    }
+  container: {
+    height: 70,
+    marginHorizontal: 10,
+    borderRadius: 25,
+    flexDirection: 'row',
+    alignItems: 'center',
 
+    // backgroundColor:'#d6ce94',
+    paddingHorizontal: 10,
+  },
+  cardtext: {
+    paddingHorizontal: 15,
+    fontSize: 16,
+  },
 });

@@ -6,7 +6,7 @@ import {View,
 } from 'react-native';
 
 import UserAvatar from './usersAvatar';
-import staticData from '../assest/constant';
+import staticData from '../src/assest/constant';
 import SimpleCard from './simpleCard';
 
 const AllContact = ()=>{
@@ -14,7 +14,7 @@ const AllContact = ()=>{
     return (
         <ScrollView>
     { contacts.map((item)=>(
-        <SimpleCard item={item}/>
+        <SimpleCard key={item.id} item={item}/>
     ))}
         </ScrollView>
     );
