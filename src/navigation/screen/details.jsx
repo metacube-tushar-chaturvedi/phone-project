@@ -20,7 +20,6 @@ export default function DetailsScreen({navigation, route}) {
     if (toggle == 'false') {
       setToggle(true);
     } else {
-      // setToggle(false);
     }
   };
   return (
@@ -28,10 +27,8 @@ export default function DetailsScreen({navigation, route}) {
     <View style={styles.screenBox}>
     <DetailAppBar item={item}/>
     </View>
-     
       <ScrollView>
       <View style={styles.screenBox}>
-   
       <View style={styles.startCon}>
         <UserAvatar
           name={item.name}

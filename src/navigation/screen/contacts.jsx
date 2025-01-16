@@ -6,7 +6,7 @@ import {
 
 } from "react-native";
 import Appbar from "../../components/appBar";
-import AllContact  from "../../components/allContactCard";
+import AllContact from "../../components/allContactCard";
 
 export default function ContactScreen(){
     return(

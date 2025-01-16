@@ -5,7 +5,7 @@ import MaterialIcon from 'react-native-vector-icons/MaterialIcons';
 
 //component
 import UserAvatar from './usersAvatar';
-import staticData from '../src/assest/constant';
+import staticData from '../assest/constant';
 import SimpleCard from './simpleCard';
 
 export default function RecentCard({navigation}) {

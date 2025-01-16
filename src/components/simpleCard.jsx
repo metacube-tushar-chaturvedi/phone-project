@@ -23,6 +23,25 @@ export default function SimpleCard({item, isOpen, setIsOpen}) {
   const navDetailScreen = () => {
     navigation.navigate('detail', {item: item});
   };
+
+function convertReadableTimeout(timestamp) {
+    const date = new Date(timestamp);
+
+    const options = {
+        day: '2-digit',
+        month: 'short', 
+        hour: '2-digit',
+        minute: '2-digit',
+        hour12: true, 
+        timeZone: 'Asia/Kolkata' 
+    };
+
+
+    const formattedDate = date.toLocaleString('en-IN', options);
+
+    return formattedDate.replace(',', ' ').replace(' ', ', ');
+}
+
   return item.type != null ? (
     item.id === isOpen.id && isOpen.show ? (
       <View style={styles.conExp}>
@@ -66,7 +85,7 @@ export default function SimpleCard({item, isOpen, setIsOpen}) {
               {isOpen.id === item.id && isOpen.show === true && (
                 <Text>visible</Text>
               )}
-              <Text>{item.type + ' ' + item.time}</Text>
+              <Text>{item.type + ' ' + convertReadableTimeout(item.timestamp)}</Text>
             </View>
           </TouchableOpacity>
         </View>

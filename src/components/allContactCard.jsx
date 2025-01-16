@@ -6,7 +6,7 @@ import {View,
 } from 'react-native';
 
 import UserAvatar from './usersAvatar';
-import staticData from '../src/assest/constant';
+import staticData from '../assest/constant';
 import SimpleCard from './simpleCard';
 
 const AllContact = ()=>{

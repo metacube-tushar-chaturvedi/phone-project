@@ -8,7 +8,7 @@ export default function Footer() {
   return (
     <View>
       <View style={styles.con}>
-        <Text>Contact info from </Text>
+        <Text>Contact info from</Text>
         <View style={styles.avatarRow}>
           <View style={styles.avatarStyle}>
             <UserAvatar name="Tushar" background={1} size={25} fontSize={14} />
@@ -23,8 +23,17 @@ export default function Footer() {
         <Text style={{color: '#895847', fontWeight: '700'}}>  3 linked contected
         </Text>
       </View>
-      <View style={{alignItems:'center',justifyContent:'center', height:40, margin:20}}>   <Text style={{color:'#514745',fontWeight:'600'}}>Help & feedback</Text></View>
-   
+      <View
+        style={{
+          alignItems: 'center',
+          justifyContent: 'center',
+          height: 40,
+          margin: 20,
+        }}>
+        <Text style={{color: '#514745', fontWeight: '600'}}>
+          Help & feedback
+        </Text>
+      </View>
     </View>
   );
 }

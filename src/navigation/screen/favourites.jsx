@@ -1,13 +1,21 @@
 import React from 'react';
-import {Text, View, StyleSheet} from 'react-native';
+import {Text, View, StyleSheet,FlatList} from 'react-native';
 import MaterialIcon from 'react-native-vector-icons/MaterialIcons'
 
 //component
 import Appbar from '../../components/appBar';
 import UserAvatar from '../../components/usersAvatar';
-
+import FavouriteCard from '../../components/favouriteCard';
+import staticData from '../../assest/constant';
 
 export default function FavouriteScreen({navigation}) {
+
+const {callLogs, contacts} = staticData;
+const favList = ()=>{
+};
+
+
+
   return (
     <View>
       <Appbar />
@@ -15,10 +23,13 @@ export default function FavouriteScreen({navigation}) {
         <Text>Favourite</Text>
         <Text>Add</Text>
       </View>
-      <View style={{position:'relative' , height:120 , width:120}}>
-        <UserAvatar name="Ritik" background={4} size={120} fontSize={60}/>
-        <View style={{position:'absolute', bottom:0, right:0, backgroundColor:'#fff' , borderRadius:25, padding:5}}> <MaterialIcon name="phone" size={25}/></View>   
-      </View>
+       <View style={styles.favCardCon}>
+          <FavouriteCard details={contacts[1]}/>
+          <FavouriteCard details={contacts[7]}/>
+          <FavouriteCard details={contacts[6]}/>
+      
+       </View>
+
     </View>
   );
 }
@@ -32,5 +43,9 @@ const styles = StyleSheet.create({
   content: {
     fontSize: 24,
     fontWeight: 'bold',
+  
   },
+  favCardCon:{
+     flexDirection:'row'
+  }
 });
