@@ -12,7 +12,7 @@ import RecentCard from "../../components/recentCard";
 export default function RecentScreen(){
    return(
     <View>
-          <Appbar/>
+          <Appbar />
           <RecentCard/>
         </View>
   

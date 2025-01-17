@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {View, Text, StyleSheet, TouchableOpacity} from 'react-native';
+import {View, Text, StyleSheet, TouchableOpacity,Linking} from 'react-native';
 
 import MaterialIcon from 'react-native-vector-icons/MaterialIcons';
 import {useNavigation} from '@react-navigation/native';
@@ -42,6 +42,12 @@ function convertReadableTimeout(timestamp) {
     return formattedDate.replace(',', ' ').replace(' ', ', ');
 }
 
+const makeCall = (item)=>{
+   console.log("openContatc", item.number);
+   let number = `tel:${item.number}`;
+   Linking.openURL(number);
+}
+
   return item.type != null ? (
     item.id === isOpen.id && isOpen.show ? (
       <View style={styles.conExp}>
@@ -60,7 +66,7 @@ function convertReadableTimeout(timestamp) {
               </View>
             </TouchableOpacity>
           </View>
-          <MaterialIcon name="phone" size={25} style={styles.cardIcon} />
+          <MaterialIcon name="phone" size={25} style={styles.cardIcon} onPress={()=>makeCall(item)}/>
         </View>
         <Divider />
         <View style={styles.iconCon}>
@@ -89,7 +95,7 @@ function convertReadableTimeout(timestamp) {
             </View>
           </TouchableOpacity>
         </View>
-        <MaterialIcon name="phone" size={25} style={styles.cardIcon} />
+        <MaterialIcon name="phone" size={25} style={styles.cardIcon} onPress={()=>makeCall(item)}/>
       </View>
     )
   ) : (
