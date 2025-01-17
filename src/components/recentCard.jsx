@@ -11,6 +11,47 @@ import SimpleCard from './simpleCard';
 export default function RecentCard({navigation}) {
   const {callLogs} = staticData;
 const [isOpen,setIsOpen] = useState({id:null, show:false}); 
+
+function convertReadableTimeout(timestamp) {
+  const date = new Date(timestamp);
+  const options = {
+      day: '2-digit',
+      month: 'short', 
+      hour: '2-digit',
+      minute: '2-digit',
+      hour12: true, 
+      timeZone: 'Asia/Kolkata' 
+  };
+  const formattedDate = date.toLocaleString('en-IN', options);
+  return formattedDate.replace(',', ' ').replace(' ', ', ');
+}
+
+const createSectionList =()=>{
+  console.log('step:1')
+  let templeList=[]; 
+  const currentDate = new Date();
+   let title ='';
+   let data ={};
+  callLogs.map((item)=>{
+    if(convertReadableTimeout(item.timestamp)==convertReadableTimeout(currentDate)){
+      title='Today';
+      data = item;
+      templeList += {id:title,data:item};
+    }
+    else{
+      console.log('step 2: condition false ')
+      title=convertReadableTimeout(item.timestamp);
+      data = item;
+      templeList += {id:title,data:item};
+    }
+
+  });
+  console.log(templeList);
+  return templeList;
+} 
+
+const  getSectionList = createSectionList();
+console.log("Section",getSectionList);
   return (
     <ScrollView>
       <Text style={styles.headerStyle}>Today</Text>

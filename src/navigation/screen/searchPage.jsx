@@ -60,6 +60,8 @@ const styles = StyleSheet.create({
   },
   searchText:{
     width:300,
+      paddingHorizontal: 15,
+      fontSize: 18,
   },
   headingText:{
     fontSize:14,
