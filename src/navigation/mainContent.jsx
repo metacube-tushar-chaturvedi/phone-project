@@ -11,9 +11,11 @@ import BottomNavigator from './bottom';
 //Screen
 import DetailsScreen from './screen/details';
 import SearchScreen from './screen/searchPage';
+import CreateContactScreen from './screen/createContact';
 
 //const
 const searchName = 'search';
+const createContactName = 'createContact';
 
 const Stack = createNativeStackNavigator();
 
@@ -34,6 +36,11 @@ export default function MainContainer() {
     <Stack.Screen 
     name={searchName}
     component={SearchScreen}
+    options={{headerShown:false}}
+    />
+    <Stack.Screen
+    name = {createContactName}
+    component={CreateContactScreen}
     options={{headerShown:false}}
     />
       </Stack.Navigator>

@@ -8,7 +8,7 @@ import {
 import Appbar from "../../components/appBar";
 import AllContact from "../../components/allContactCard";
 
-export default function ContactScreen(){
+export default function ContactScreen({navigation}){
     return(
         <View>
                <Appbar/>

@@ -6,8 +6,8 @@ import {useNavigation} from '@react-navigation/native';
 
 //component
 import UserAvatar from './usersAvatar';
-import Divider from './detailsComponent/divider';
-import IconCard from './detailsComponent/iconCard';
+import Divider from './detailsCom/divider';
+import IconCard from './detailsCom/iconCard';
 
 export default function SimpleCard({item, isOpen, setIsOpen}) {
   const openCard = () => {

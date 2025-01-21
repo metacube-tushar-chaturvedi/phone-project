@@ -3,13 +3,13 @@ import {View, Text, StyleSheet, ScrollView, Switch} from 'react-native';
 import MaterialIcon from 'react-native-vector-icons/MaterialIcons';
 
 //component
-import DetailAppBar from '../../components/detailsComponent/detailAppbar';
+import DetailAppBar from '../../components/detailsCom/detailAppbar';
 import UserAvatar from '../../components/usersAvatar';
-import ContactInfo from '../../components/detailsComponent/contactInfo';
-import IconCard from '../../components/detailsComponent/iconCard';
-import Divider from '../../components/detailsComponent/divider';
-import ConSection from '../../components/detailsComponent/conSection';
-import Footer from '../../components/detailsComponent/footer';
+import ContactInfo from '../../components/detailsCom/contactInfo';
+import IconCard from '../../components/detailsCom/iconCard';
+import Divider from '../../components/detailsCom/divider';
+import ConSection from '../../components/detailsCom/conSection';
+import Footer from '../../components/detailsCom/footer';
 
 
 export default function DetailsScreen({navigation, route}) {

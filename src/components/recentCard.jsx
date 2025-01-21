@@ -26,32 +26,32 @@ function convertReadableTimeout(timestamp) {
   return formattedDate.replace(',', ' ').replace(' ', ', ');
 }
 
-const createSectionList =()=>{
-  console.log('step:1')
-  let templeList=[]; 
-  const currentDate = new Date();
-   let title ='';
-   let data ={};
-  callLogs.map((item)=>{
-    if(convertReadableTimeout(item.timestamp)==convertReadableTimeout(currentDate)){
-      title='Today';
-      data = item;
-      templeList += {id:title,data:item};
-    }
-    else{
-      console.log('step 2: condition false ')
-      title=convertReadableTimeout(item.timestamp);
-      data = item;
-      templeList += {id:title,data:item};
-    }
+// const createSectionList =()=>{
+//   console.log('step:1')
+//   let templeList=[]; 
+//   const currentDate = new Date();
+//    let title ='';
+//    let data ={};
+//   callLogs.map((item)=>{
+//     if(convertReadableTimeout(item.timestamp)==convertReadableTimeout(currentDate)){
+//       title='Today';
+//       data = item;
+//       templeList += {id:title,data:item};
+//     }
+//     else{
+//       console.log('step 2: condition false ')
+//       title=convertReadableTimeout(item.timestamp);
+//       data = item;
+//       templeList += {id:title,data:item};
+//     }
 
-  });
-  console.log(templeList);
-  return templeList;
-} 
+//   });
+//   console.log(templeList);
+//   return templeList;
+// } 
 
-const  getSectionList = createSectionList();
-console.log("Section",getSectionList);
+// const  getSectionList = createSectionList();
+// console.log("Section",getSectionList);
   return (
     <ScrollView>
       <Text style={styles.headerStyle}>Today</Text>
