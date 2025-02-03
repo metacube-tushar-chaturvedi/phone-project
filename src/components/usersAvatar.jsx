@@ -29,10 +29,12 @@ const UserAvatar = ({
   size = 50,
   background = background,
   textColor = '#FFFFFF',
-  fontSize = 30,
+  fontSize = 20,
   onPress,
 }) => {
-  const initial = name ? name.charAt(0).toUpperCase() : '?';
+  const nameSpilt = name.split(" ");
+  const lastName = nameSpilt[1];
+  const initial = name ? name.charAt(0).toUpperCase()+ lastName.charAt(0).toUpperCase() : '?';
   const backgroundColor = avatarColors[background];
   return (
     <TouchableOpacity onPress={onPress}>

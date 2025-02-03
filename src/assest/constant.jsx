@@ -422,6 +422,11 @@ const staticData = {
   ],
 };
 
+const colors = {
+  backgroundColor:'',
+  
+}
+
 export default staticData;
 
 

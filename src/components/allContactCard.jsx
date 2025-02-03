@@ -11,7 +11,7 @@ const AllContact = () => {
   const {contacts} = staticData;
   const navigation = useNavigation();
   const navigateCreteContact = ()=>{
-   return navigation.navigate('createContact');
+  //  return navigation.navigate('createContact');
   }
   return (
     <ScrollView>

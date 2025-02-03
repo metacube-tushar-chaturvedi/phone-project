@@ -35,6 +35,7 @@ export default function SearchScreen({navigation}) {
         <TextInput
         style={styles.searchText}
           placeholder="Search Contact"
+          placeholderTextColor={"#000"}
           onChangeText={handleQuery}
         />
       </View>
@@ -62,6 +63,7 @@ const styles = StyleSheet.create({
     width:300,
       paddingHorizontal: 15,
       fontSize: 18,
+      color:'#000'
   },
   headingText:{
     fontSize:14,
